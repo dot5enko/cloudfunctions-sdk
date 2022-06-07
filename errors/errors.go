@@ -1,4 +1,6 @@
-package sdk
+package errors
+
+import "github.com/dot5enko/cloudfunctions-sdk/std"
 
 type SdkError uint
 
@@ -9,7 +11,7 @@ const (
 )
 
 func (e SdkError) Error() string {
-	return Sprintf("sdk error : %d", e)
+	return std.Sprintf("sdk error : %d", e)
 }
 
 // type Error struct {

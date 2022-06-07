@@ -16,7 +16,8 @@ type WorkerDefinition struct {
 }
 
 type AppDefinition struct {
-	Services []ServiceDefintion
-	Workers  map[string]WorkerDefinition
-	Handlers map[string]ApiHandler
+	Services   []ServiceDefintion
+	Workers    map[string]WorkerDefinition
+	Handlers   map[string]ApiHandler
+	Persistant []interface{}
 }

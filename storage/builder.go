@@ -2,8 +2,6 @@ package storage
 
 type QueryBuilderHandler func(qb *QueryBuilder, result interface{}) error
 
-type BuilderHandler QueryBuilderHandler
-
 type qcondition struct {
 	fieldname string
 	value     interface{}

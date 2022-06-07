@@ -4,34 +4,35 @@ import (
 	"reflect"
 	"time"
 
-	sdk "github.com/dot5enko/cloudfunctions-sdk"
+	"github.com/dot5enko/cloudfunctions-sdk/errors"
+	"github.com/dot5enko/cloudfunctions-sdk/stat"
 )
 
 type StorageHandler func(item interface{}) error
 
-var Handler StorageHandler
+var StoreHandler StorageHandler
 
-func _StoreObject(ctx sdk.PerformCtx, object interface{}) error {
+func _StoreObject(ctx stat.PerformCtx, object interface{}) error {
 
 	t0 := time.Now()
 	defer ctx.Metrics.Storage.Call(t0)
 
 	value := reflect.ValueOf(object)
 	if value.Type().Kind() != reflect.Ptr {
-		return sdk.PersistanceNotAddressable
+		return errors.PersistanceNotAddressable
 	}
 
-	return Handler(object)
+	return StoreHandler(object)
 }
 
-func _FetchObject(ctx sdk.PerformCtx, object interface{}) error {
+func _FetchObject(ctx stat.PerformCtx, object interface{}) error {
 	t0 := time.Now()
 	defer ctx.Metrics.Storage.Call(t0)
 
 	value := reflect.ValueOf(object)
 	if value.Type().Kind() != reflect.Ptr {
-		return sdk.PersistanceNotAddressable
+		return errors.PersistanceNotAddressable
 	}
 
-	return Handler(object)
+	return StoreHandler(object)
 }

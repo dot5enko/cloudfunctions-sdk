@@ -1,4 +1,4 @@
-package sdk
+package std
 
 type SprintfFunctionType func(message string, a ...interface{}) string
 type LogFunctionType func(message string, a ...interface{})
