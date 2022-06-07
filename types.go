@@ -13,8 +13,8 @@ type CloudfunctionContext struct {
 	Response map[string]interface{}
 }
 
-func (ci *CloudfunctionContext) PutIntoChannel(name string, value interface{}) {
-
+func (ci *CloudfunctionContext) NewTask(name string, value Task) error {
+	return nil
 }
 
-type CloudfunctionHandler func(ctx CloudfunctionContext) error
+type ApiHandler func(ctx CloudfunctionContext) error
