@@ -12,6 +12,7 @@ type WorkerDefinition struct {
 	Handler WorkerHandler
 	Name    string
 	Size    uint
+	Threads uint
 }
 
 type AppDefinition struct {

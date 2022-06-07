@@ -1,12 +1,24 @@
 package sdk
 
-type Error struct {
-	Code  uint
-	Label string
+type SdkError uint
 
-	Cause *error
+const (
+	NoSuchWorkerQueue SdkError = iota
+	FatalErrorWithStop
+	PersistanceNotAddressable
+)
+
+func (e SdkError) Error() string {
+	return Sprintf("sdk error : %d", e)
 }
 
-func (err *Error) Error() string {
-	return Sprintf("%d : %s", err.Code, err.Label)
-}
+// type Error struct {
+// 	Code  uint
+// 	Label string
+
+// 	Cause *error
+// }
+
+// func (err *Error) Error() string {
+// 	return Sprintf("%d : %s", err.Code, err.Label)
+// }
