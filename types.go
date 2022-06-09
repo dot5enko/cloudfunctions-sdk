@@ -25,7 +25,7 @@ type CloudfunctionContext struct {
 	Response map[string]interface{}
 	Workers  map[string]WorkerQueueInterface
 
-	QueryHandler storage.QueryBuilderHandler
+	Storage storage.StorageHandlers
 }
 
 func (ci *CloudfunctionContext) NewTask(name string, value Task) error {
