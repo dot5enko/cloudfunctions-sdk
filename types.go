@@ -6,7 +6,7 @@ import (
 )
 
 type Request interface {
-	Get(name string) *string
+	Get(name string) string
 }
 
 type Client struct {
