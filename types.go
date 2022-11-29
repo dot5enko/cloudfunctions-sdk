@@ -17,6 +17,19 @@ type WorkerQueueInterface interface {
 	Push(item interface{})
 }
 
+type InterchangeMessage struct {
+	ReqUid string `json:"req_id"`
+
+	Uri   string `json:"uri"`
+	Query string `json:"query"`
+}
+
+type InterchangeMessageResponse struct {
+	ReqUid string `json:"req_id"`
+
+	Data string `json:"data"`
+}
+
 type CloudfunctionContext struct {
 	Request Request
 
