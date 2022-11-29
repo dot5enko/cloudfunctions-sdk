@@ -22,7 +22,7 @@ type CloudfunctionContext struct {
 
 	Client *Client
 
-	Response map[string]interface{}
+	Response interface{}
 	Workers  map[string]WorkerQueueInterface
 
 	Storage storage.StorageHandlers
