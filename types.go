@@ -25,7 +25,8 @@ type InterchangeMessage struct {
 }
 
 type InterchangeMessageResponse struct {
-	ReqUid string `json:"req_id"`
+	ReqUid     string `json:"req_id"`
+	HandleTime uint64 `json:"handle_time"`
 
 	Data string `json:"data"`
 }
